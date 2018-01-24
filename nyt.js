@@ -14,9 +14,18 @@ $(document).ready(function () {
             url: url,
             method: 'GET',
         }).done(function (result) {
-            console.log(result.response.docs[0]);
+            console.log(result.response.docs);
+            JSON.stringify(result.response.docs[0]);
+            var output = $("<p>").text(result.response.docs[0]);
+            // console.log(result);
+            $("#returnedResponse").prepend(output);
+
         }).fail(function (err) {
             throw err;
-        });
+            // console.log(result);
+
+        });  
     });
+        
+
 });
